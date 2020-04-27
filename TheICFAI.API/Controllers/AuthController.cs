@@ -29,10 +29,11 @@ namespace TheICFAI.API.Controllers
         {
             // validate request
 
+          
             userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
 
             if (await _repo.UserExists(userForRegisterDto.Username))
-                return BadRequest("Username already exists!");
+                return BadRequest("Username already exist");
 
             var userToCreate = new User
             {
@@ -45,21 +46,21 @@ namespace TheICFAI.API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
+         public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
-            var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
+          
+                 var userFromRepo = await _repo.Login(userForLoginDto.Username, userForLoginDto.Password);
 
-            if (userFromRepo == null)
-                return Unauthorized();
+                  if (userFromRepo == null)
+                  return Unauthorized();
 
-            var claims = new[]
+                 var claims = new[]
             {
                 new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
                 new Claim(ClaimTypes.Name, userFromRepo.Username)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8
-                .GetBytes(_config.GetSection("AppSettings:Token").Value));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSettings:Token").Value));
 
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
@@ -68,13 +69,14 @@ namespace TheICFAI.API.Controllers
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.Now.AddDays(1),
                 SigningCredentials = creds
+
             };
 
             var tokenHandler = new JwtSecurityTokenHandler();
 
             var token = tokenHandler.CreateToken(tokenDescriptor);
 
-            return Ok(new {
+            return Ok(new{
                 token = tokenHandler.WriteToken(token)
             });
         }
