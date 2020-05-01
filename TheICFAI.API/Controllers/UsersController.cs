@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using TheICFAI.API.Data;
 using TheICFAI.API.Dtos;
+using TheICFAI.API.Helpers;
 
 namespace TheICFAI.API.Controllers
 {
+    [ServiceFilter(typeof(LogUserActivity))]
     [Authorize]
     [Route("api/[controller]")]
     [ApiController]

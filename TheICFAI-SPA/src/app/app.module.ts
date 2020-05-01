@@ -1,5 +1,6 @@
 import { BrowserModule, HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { TimeagoModule } from 'ngx-timeago';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -61,6 +62,7 @@ export class CustomerHammerConfig extends HammerGestureConfig {
    ],
    imports: [
       BrowserModule,
+      TimeagoModule.forRoot(),
       HttpClientModule,
       FormsModule,
       ReactiveFormsModule,
