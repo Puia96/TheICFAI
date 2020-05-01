@@ -1,10 +1,12 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { FileUploader } from 'ng2-file-upload';
 import { Photo } from 'src/app/_models/photo';
+import { FileUploader } from 'ng2-file-upload';
+import { environment} from '../../../environments/environment';
+import { from } from 'rxjs';
 import { AuthService } from 'src/app/_services/auth.service';
 import { UserService } from 'src/app/_services/user.service';
-import { environment } from 'src/environments/environment';
 import { AlertifyService } from 'src/app/_services/alertify.service';
+import { error } from 'protractor';
 
 @Component({
   selector: 'app-photo-editor',
@@ -53,11 +55,11 @@ export class PhotoEditorComponent implements OnInit {
           isMain: res.isMain
         };
         this.photos.push(photo);
-        // if (photo.isMain) {
-        //   this.authService.changeMemberPhoto(photo.url);
-        //   this.authService.currentUser.photoUrl = photo.url;
-        //   localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
-        // }
+        if (photo.isMain) {
+          this.authService.changeMemberPhoto(photo.url);
+          this.authService.currentUser.photoUrl = photo.url;
+          localStorage.setItem('user', JSON.stringify(this.authService.currentUser));
+        }
       }
     };
   }
