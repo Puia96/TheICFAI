@@ -9,7 +9,7 @@ using TheICFAI.API.Data;
 namespace TheICFAI.API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20200504123606_MessageEntityAdded")]
+    [Migration("20200504160912_MessageEntityAdded")]
     partial class MessageEntityAdded
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
