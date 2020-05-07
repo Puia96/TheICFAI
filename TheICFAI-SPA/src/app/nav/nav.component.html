@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md navbar-dark bg-primary">
   <div class="container">
     <a class="navbar-brand" [routerLink]="['/home']"><i class="fa fa-comments fa-2x" aria-hidden="true" ></i>TheICFAI</a>
  
@@ -18,7 +18,7 @@
       <span class="mr-1">
         <img src="{{photoUrl || '../../../../assets/user.png'}}" alt="">
       </span>
-      <a class="dropdown-toggle" dropdownToggle>
+      <a class="dropdown-toggle" dropdownToggle style="color: white;">
         Welcome {{authService.decodedToken?.unique_name | titlecase}}
       </a>
     
