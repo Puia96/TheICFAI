@@ -1,5 +1,21 @@
 .BgImg {
-    /* background-image: url(../home/images/DSC_3708.jpeg); */
+    background-image: url(../home/images/ICFAI2.jpeg);
     background-position: center;
     background-size: cover;
+    min-height: 100vh;
+}
+
+@media (max-width: 991px) {
+    .BgImg {
+        min-width: 768px;
+    }
+}
+
+@media (max-width: 767px) {
+    .BgImg {
+        min-width: auto;
+        background: none;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
 }

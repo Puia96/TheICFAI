@@ -1,7 +1,7 @@
 .form-control {
     border: 1px solid #ccc;
     display: block;
-    width: 100%;
+    width: 50%;
     height: 40px;
     padding: 0 20px;
     font-family: "Muli-Bold";
@@ -12,7 +12,14 @@
 
 .wrapper {
     height: auto;
-    margin-top: -25%;
+    margin-top: -30%;
+    background-image: url(../register/images/home.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-width: 800px;
+    border-radius: 10%;
+    border-style: groove;
+    padding: 10px;
     /* min-height: 100vh;
     background-size: cover;
     background-repeat: no-repeat;
@@ -26,3 +33,16 @@
     padding-left: 15px;  */
 }
   
+@media (max-width: 991px) {
+    .wrapper {
+      min-width: 768px; } 
+}
+  @media (max-width: 767px) {
+    .wrapper {
+      min-width: auto;
+      background: none;
+      padding-top: 0;
+      padding-bottom: 0; }
+}
+    
+    
