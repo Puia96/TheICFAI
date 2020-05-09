@@ -13,3 +13,6 @@
     border-top: none;
 }
 
+.form-inline {
+    font-weight: bold;
+}
