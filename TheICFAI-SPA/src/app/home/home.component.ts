@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
   registerMode = false;
+  readMode = false;
   values: any;
 
   constructor(private http: HttpClient) { }
@@ -24,5 +25,12 @@ export class HomeComponent implements OnInit {
     this.registerMode = registerMode;
   }
 
+  readToggle() {
+    this.readMode = true;
+  }
+
+  cancelReadMode(readMode: boolean) {
+    this.readMode = readMode;
+  }
 
 }
