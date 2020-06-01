@@ -38,7 +38,8 @@ ngOnInit() {
       dateOfBirth: [null, Validators.required],
       city: ['', Validators.required],
       country: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
+      // password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
+      password: ['', Validators.required],
       confirmPassword: ['', Validators.required]
     }, {validators: this.passwordMatchValidator});
   }

@@ -1,3 +1,9 @@
+.BgImg {
+    background-image: url(../messages/images/messages1.jpg);
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+  }
 table {
     margin-top: 15px;
 }

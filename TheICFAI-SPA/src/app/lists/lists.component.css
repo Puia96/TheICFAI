@@ -1,0 +1,6 @@
+.BgImg {
+    background-image: url(../lists/images/lists1.jpg);
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+  }
